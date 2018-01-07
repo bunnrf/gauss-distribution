@@ -13,26 +13,28 @@
 <body>
   <input id="paste-image-url" type="text" placeholder="Paste image URL">
   <input id="image-file-input" type="file">
-  <iframe src="assets/gauss.html">
+  <iframe id="gauss-iframe" src="assets/gauss.html">
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', () => {
-      imgSrc = 'https://i.imgur.com/iyf2bRA.png';
+      var imgSrc = 'https://i.imgur.com/iyf2bRA.png';
       const urlInput = document.getElementById('paste-image-url');
       const fileInput = document.getElementById('image-file-input');
+      const gaussIframe = document.getElementById('gauss-iframe');
+      
+      function updateImgSrc(src) {
+        imgSrc = src
+        iframe.src = iframe.src;
+      }
       
       function handleUrlInput(e) {
-        currentStage = 1;
-        maxColorsInBin = 0;
-        imgSrc = e.target.value;
+        updateImgSrc(e.target.value);
       }
       
       var fReader = new FileReader();
       fReader.onloadend = function(event){
-        imgSrc = event.target.result;
+        updateImgSrc(event.target.result);
       }
       function handleFileInput(e) {
-        currentStage = 1;
-        maxColorsInBin = 0;
         fReader.readAsDataURL(e.target.files[0]);
       }
       
