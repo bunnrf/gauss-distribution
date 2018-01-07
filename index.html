@@ -11,9 +11,9 @@
 </head>
 
 <body>
+  <iframe id="gauss-iframe" src="assets/gauss.html"></iframe>
   <input id="paste-image-url" type="text" placeholder="Paste image URL">
   <input id="image-file-input" type="file">
-  <iframe id="gauss-iframe" src="assets/gauss.html">
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', () => {
       var imgSrc = 'https://i.imgur.com/iyf2bRA.png';
@@ -22,8 +22,8 @@
       const gaussIframe = document.getElementById('gauss-iframe');
       
       function updateImgSrc(src) {
-        imgSrc = src
-        gaussIframe.src = gaussIframe.src;
+        imgSrc = src;
+        iframe.src = iframe.src;
       }
       
       function handleUrlInput(e) {
