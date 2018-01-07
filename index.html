@@ -16,13 +16,13 @@
   <input id="image-file-input" type="file">
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', () => {
-      var imgSrc = 'https://i.imgur.com/iyf2bRA.png';
+      window.imgSrc = 'https://i.imgur.com/iyf2bRA.png';
       const urlInput = document.getElementById('paste-image-url');
       const fileInput = document.getElementById('image-file-input');
       const gaussIframe = document.getElementById('gauss-iframe');
       
       function updateImgSrc(src) {
-        imgSrc = src;
+        window.imgSrc = src;
         gaussIframe.src = gaussIframe.src;
       }
       
