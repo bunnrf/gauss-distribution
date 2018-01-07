@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name=Description content="Gaussian distribution...">
+  <meta name=keywords content="joke, animation, Gauss">
+  <meta name=author content="Andrei Kashcha">
+  <title>Gaussian Distribution</title>
+</head>
+
+<body>
+  <input id="paste-image-url" type="text" placeholder="Paste image URL">
+  <input id="image-file-input" type="file">
+  <iframe src="gauss.html">
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', () => {
+      imgSrc = 'https://i.imgur.com/iyf2bRA.png';
+      const urlInput = document.getElementById('paste-image-url');
+      const fileInput = document.getElementById('image-file-input');
+      
+      function handleUrlInput(e) {
+        currentStage = 1;
+        maxColorsInBin = 0;
+        imgSrc = e.target.value;
+      }
+      
+      var fReader = new FileReader();
+      fReader.onloadend = function(event){
+        imgSrc = event.target.result;
+      }
+      function handleFileInput(e) {
+        currentStage = 1;
+        maxColorsInBin = 0;
+        fReader.readAsDataURL(e.target.files[0]);
+      }
+      
+      urlInput.addEventListener("change", handleUrlInput);
+      fileInput.addEventListener("change", handleFileInput);
+    });
+  </script>
+</body>
